@@ -23,7 +23,7 @@ const TodosFooter = () => {
   };
 
   return (
-    <div className="flex items-center justify-between p-4 border-t">
+    <div className="flex items-center flex-col gap-4 justify-between p-4 border-t sm:flex-row">
       <span className="text-[#8F8F8F]">{countActive ? `${countActive} items left` : "Empty"}</span>
       <div className="flex items-center gap-3">
         {statuses.map((status, index) => (
