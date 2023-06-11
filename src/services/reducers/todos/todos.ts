@@ -1,14 +1,14 @@
-import { deleteCookie, getCookie, setCookie } from "../../utils/cookie";
-import { getInitialTodos } from "../../utils/get-initial-todos";
-import { TodoActions } from "../actions/todos";
+import { deleteCookie, getCookie, setCookie } from "../../../utils/cookie";
+import { getInitialTodos } from "../../../utils/get-initial-todos";
+import { TodoActions } from "../../actions/todos";
 import {
   ADD_TODO,
   CLEAR_TODOS,
   DELETE_TODO,
   UPDATE_FILTER_STATUS,
   UPDATE_TODO,
-} from "../constants/todos";
-import { TodoStatus, TodoTypes } from "../types/data";
+} from "../../constants/todos";
+import { TodoStatus, TodoTypes } from "../../types/data";
 
 type TodoState = {
   filterStatus: TodoStatus;
@@ -17,7 +17,7 @@ type TodoState = {
 
 const initialState: TodoState = getInitialTodos();
 
-export const todoReducer = (state = initialState, action: TodoActions): TodoState => {
+export const todosReducer = (state = initialState, action: TodoActions): TodoState => {
   switch (action.type) {
     case ADD_TODO: {
       const data = getCookie("todoList");
@@ -55,6 +55,7 @@ export const todoReducer = (state = initialState, action: TodoActions): TodoStat
 
     case UPDATE_TODO: {
       const data = getCookie("todoList");
+      console.log(action.updated);
 
       if (data) {
         const todoList: TodoTypes[] = JSON.parse(data);
