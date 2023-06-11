@@ -1,0 +1,24 @@
+.svgBox {
+  flex-basis: 25px;
+  flex-shrink: 0;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.3s ease border;
+  border: 1px solid #e6e6e6;
+}
+
+.svgBox:hover {
+  border: 1px solid #78c1b0;
+}
+
+.svgBox svg {
+  stroke: #78c1b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
