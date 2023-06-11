@@ -30,7 +30,11 @@ const TodosFooter = () => {
           <StatusButton key={index} status={status} />
         ))}
       </div>
-      <button id="clear" className="text-[#8F8F8F]" onClick={handleClear}>
+      <button
+        id="clear"
+        className="text-[#8F8F8F] transition hover:opacity-60"
+        onClick={handleClear}
+      >
         Clear completed
       </button>
     </div>

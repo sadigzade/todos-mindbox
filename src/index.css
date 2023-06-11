@@ -54,6 +54,14 @@
     background-color: #fefefe;
     z-index: -1;
   }
+
+  .transition {
+    transition: all 300ms ease-in-out;
+  }
+
+  .border-hover:hover {
+    border-color: #ebd7d7;
+  }
 }
 
 body {

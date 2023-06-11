@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, MouseEvent, useState } from "react";
 import { v4 as uuid } from "uuid";
 import { useDispatch } from "../../../hooks/useDispatch";
 import { addTodo } from "../../../services/actions/todos";
@@ -21,7 +21,9 @@ const TodosHeader = () => {
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
     if (title !== "") {
       dispatch(addTodo({ id: uuid(), title, status: TodoStatus.ACTIVE }));
       setTitle("");
@@ -30,7 +32,13 @@ const TodosHeader = () => {
 
   return (
     <form id="form" onSubmit={handleSubmit} className="border-b relative">
-      <button id="add-btn" className="w-8 h-8 absolute top-3 left-[10px]" onClick={handleClick} />
+      <button
+        id="add-btn"
+        className={`w-7 h-7 absolute top-[13px] left-[12px] rounded-sm border-solid transition ${
+          title !== "" ? "border" : ""
+        }`}
+        onClick={handleClick}
+      />
       <input
         id="input-record"
         className="w-full placeholder:italic focus:outline-none svg-input-before"
