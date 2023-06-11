@@ -29,9 +29,10 @@ const TodosHeader = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border-b relative">
-      <button className="w-8 h-8 absolute top-3 left-[10px]" onClick={handleClick} />
+    <form id="form" onSubmit={handleSubmit} className="border-b relative">
+      <button id="add-btn" className="w-8 h-8 absolute top-3 left-[10px]" onClick={handleClick} />
       <input
+        id="input-record"
         className="w-full placeholder:italic focus:outline-none svg-input-before"
         type="text"
         value={title}

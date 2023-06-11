@@ -30,7 +30,7 @@ const TodosFooter = () => {
           <StatusButton key={index} status={status} />
         ))}
       </div>
-      <button className="text-[#8F8F8F]" onClick={handleClear}>
+      <button id="clear" className="text-[#8F8F8F]" onClick={handleClear}>
         Clear completed
       </button>
     </div>

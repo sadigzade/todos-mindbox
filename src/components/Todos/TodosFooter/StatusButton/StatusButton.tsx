@@ -19,6 +19,7 @@ const StatusButton: FC<StatusButtonProps> = ({ status }) => {
 
   return (
     <button
+      id={status}
       className={`text-[#8F8F8F] px-2 border border-solid rounded-sm ${
         filterStatus === status ? "border-[#EBD7D7]" : "border-transparent"
       }`}

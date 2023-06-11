@@ -37,6 +37,7 @@ const CheckButton: FC<CheckButtonProps> = ({ checked, handleCheck }) => {
 
   return (
     <motion.div
+      id="check"
       className={styles.svgBox}
       variants={boxVariants}
       animate={checked ? "checked" : "unchecked"}
