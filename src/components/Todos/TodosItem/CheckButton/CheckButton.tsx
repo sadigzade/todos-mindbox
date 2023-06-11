@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, MouseEvent } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 
 import styles from "./CheckButton.module.css";
@@ -28,7 +28,7 @@ const checkVaiants = {
 
 type CheckButtonProps = {
   checked: boolean;
-  handleCheck: () => void;
+  handleCheck: (e: MouseEvent<HTMLDivElement>) => void;
 };
 
 const CheckButton: FC<CheckButtonProps> = ({ checked, handleCheck }) => {
@@ -41,10 +41,12 @@ const CheckButton: FC<CheckButtonProps> = ({ checked, handleCheck }) => {
       className={styles.svgBox}
       variants={boxVariants}
       animate={checked ? "checked" : "unchecked"}
-      onClick={handleCheck}
+      onClick={(e) => handleCheck(e)}
     >
       <motion.svg
         className={styles.svg}
+        width={10}
+        height={10}
         viewBox="0 0 53 38"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

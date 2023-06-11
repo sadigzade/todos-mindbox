@@ -35,7 +35,7 @@ const Todos = () => {
   );
 
   return (
-    <motion.div className="" variants={containerVariant} initial="hidden" animate="visible">
+    <motion.div variants={containerVariant} initial="hidden" animate="visible">
       <AnimatePresence>
         {filteredTodoList && filteredTodoList.length ? (
           filteredTodoList.map((todo, index) => (
@@ -47,7 +47,7 @@ const Todos = () => {
           ))
         ) : (
           <motion.p className="p-4 flex items-center justify-center" variants={childVariant}>
-            No tasks yet
+            There are no tasks yet
           </motion.p>
         )}
       </AnimatePresence>

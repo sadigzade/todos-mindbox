@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, MouseEvent, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import classNames from "classnames";
 
@@ -28,7 +28,9 @@ const TodosItem: FC<TodoItemProps> = ({ todo, underline }) => {
   const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
 
-  const handleCheck = () => {
+  const handleCheck = (e: MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+
     setChecked(!checked);
     dispatch(
       updateTodo({
