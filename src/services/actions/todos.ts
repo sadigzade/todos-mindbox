@@ -1,6 +1,6 @@
 import {
   ADD_TODO,
-  CLEAR_TODOS,
+  CLEAR_COMPLITED_TODOS,
   DELETE_TODO,
   UPDATE_FILTER_STATUS,
   UPDATE_TODO,
@@ -24,7 +24,7 @@ type UpdateFilterStatusAction = {
   readonly status: TodoStatus;
 };
 type ClearTodos = {
-  readonly type: typeof CLEAR_TODOS;
+  readonly type: typeof CLEAR_COMPLITED_TODOS;
 };
 
 export type TodoActions =
@@ -62,8 +62,8 @@ export const updateFilterStatus = (status: TodoStatus): UpdateFilterStatusAction
   };
 };
 
-export const clearTodos = () => {
+export const clearComplitedTodos = () => {
   return {
-    type: CLEAR_TODOS,
+    type: CLEAR_COMPLITED_TODOS,
   };
 };

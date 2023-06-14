@@ -2,7 +2,7 @@ import React from "react";
 import { TodoStatus } from "../../../services/types/data";
 import StatusButton from "./StatusButton/StatusButton";
 import { useDispatch } from "../../../hooks/useDispatch";
-import { clearTodos } from "../../../services/actions/todos";
+import { clearComplitedTodos } from "../../../services/actions/todos";
 import { useSelector } from "../../../hooks/useSelector";
 
 const statuses = [TodoStatus.ALL, TodoStatus.ACTIVE, TodoStatus.COMPLETED];
@@ -19,7 +19,7 @@ const TodosFooter = () => {
   }, 0);
 
   const handleClear = () => {
-    dispatch(clearTodos());
+    dispatch(clearComplitedTodos());
   };
 
   return (

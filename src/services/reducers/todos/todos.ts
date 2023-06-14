@@ -1,9 +1,9 @@
-import { deleteCookie, getCookie, setCookie } from "../../../utils/cookie";
+import { getCookie, setCookie } from "../../../utils/cookie";
 import { getInitialTodos } from "../../../utils/get-initial-todos";
 import { TodoActions } from "../../actions/todos";
 import {
   ADD_TODO,
-  CLEAR_TODOS,
+  CLEAR_COMPLITED_TODOS,
   DELETE_TODO,
   UPDATE_FILTER_STATUS,
   UPDATE_TODO,
@@ -55,7 +55,6 @@ export const todosReducer = (state = initialState, action: TodoActions): TodoSta
 
     case UPDATE_TODO: {
       const data = getCookie("todoList");
-      console.log(action.updated);
 
       if (data) {
         const todoList: TodoTypes[] = JSON.parse(data);
@@ -84,13 +83,22 @@ export const todosReducer = (state = initialState, action: TodoActions): TodoSta
       };
     }
 
-    case CLEAR_TODOS: {
-      deleteCookie("todoList");
+    case CLEAR_COMPLITED_TODOS: {
+      const data = getCookie("todoList");
 
-      return {
-        ...state,
-        todoList: [],
-      };
+      if (data) {
+        const todoList: TodoTypes[] = JSON.parse(data);
+        const filteredTodoList = todoList.filter((todo) => todo.status !== TodoStatus.COMPLETED);
+
+        setCookie("todoList", JSON.stringify(filteredTodoList));
+
+        return {
+          ...state,
+          todoList: filteredTodoList,
+        };
+      }
+
+      return state;
     }
 
     default: {
